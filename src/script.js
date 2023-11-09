@@ -156,11 +156,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 const clock = new THREE.Clock()
 
-let animationParams = {
-    animationEnabled: true
-}
-gui.add(animationParams, 'animationEnabled').name('Animate the scene ?')
-
 
 
 const tick = () =>
@@ -169,17 +164,7 @@ const tick = () =>
     // Update controls
     controls.update()
 
-    // Animate object
-    if(animationParams.animationEnabled)
-    {
-        controls.enabled = false
-
-        camera.position.x = Math.tan(elapsedTime * 0.3)
-        camera.position.y = Math.tan(elapsedTime * 0.3)
-        
-    } else {
-        controls.enabled = true
-    }
+  
     
 
     // Render
